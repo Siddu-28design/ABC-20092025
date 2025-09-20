@@ -1,0 +1,19 @@
+variables:
+  prefix:
+    description: "Prefix for all resources"
+    type: string
+    default: "agw"
+  location:
+    description: "Azure region"
+    type: string
+    default: "eastus"
+  resource_group_name:
+    description: "Name of the resource group"
+    type: string
+    default: "myResourceGroup"
+  backend_ips:
+    description: "List of backend IPs (VM1 private IP and VM2 public IP)"
+    type: list(string)
+    default: 
+      - "10.0.2.4"
+      - "52.151.12.124"
