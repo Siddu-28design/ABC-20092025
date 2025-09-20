@@ -1,0 +1,37 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  backend_ips: '["10.0.2.4"]'          # Example, set your backend IPs
+  resource_group_name: 'myResourceGroup'
+  location: 'eastus'
+  prefix: 'demo'
+
+steps:
+- checkout: self
+
+- task: TerraformInstaller@1
+  displayName: 'Install Terraform'
+
+- script: |
+    terraform init
+  displayName: 'Terraform Init'
+
+- script: |
+    terraform validate
+  displayName: 'Terraform Validate'
+
+- script: |
+    terraform plan -out=tfplan \
+      -var "resource_group_name=$(resource_group_name)" \
+      -var "location=$(location)" \
+      -var "prefix=$(prefix)" \
+      -var "backend_ips=$(backend_ips)"
+  displayName: 'Terraform Plan'
+
+- script: |
+    terraform apply -auto-approve tfplan
+  displayName: 'Terraform Apply'
