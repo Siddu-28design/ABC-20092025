@@ -1,0 +1,10 @@
+outputs:
+  application_gateway_public_ip:
+    description: "Public IP of the Application Gateway"
+    value: "${{ resources.azurerm_public_ip.agw_pip.ip_address }}"
+  application_gateway_name:
+    description: "Application Gateway name"
+    value: "${{ resources.azurerm_application_gateway.agw.name }}"
+  backend_ips_used:
+    description: "List of backend IPs configured in the AGW"
+    value: "${{ variables.backend_ips }}"
