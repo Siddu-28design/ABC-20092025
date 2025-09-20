@@ -1,5 +1,5 @@
 # ABC-20092025
-Project: Application Gateway + Tomcat Deployment (ABC-20092025)
+Requirement 4: Application Gateway + Tomcat Deployment (ABC-20092025)
 This project automates the deployment of an Azure Application Gateway routing traffic to a Tomcat application running on a VM, with an additional Tomcat container in a separate network, using Terraform and Azure DevOps. Below are the detailed implementation steps that were followed:
 
 Steps Followed
