@@ -1,8 +1,7 @@
 trigger:
 - main
 
-pool:
-  vmImage: 'ubuntu-latest'
+pool: SidduPool
 
 variables:
   backend_ips: '["10.0.2.4"]'          # Example, set your backend IPs
